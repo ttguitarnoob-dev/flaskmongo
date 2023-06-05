@@ -6,7 +6,7 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 #mongodb connection
-client = MongoClient('mongodb://10.24.24.164:27017')
+client = MongoClient('mongodb://127.0.0.1:27017')
 db = client['poodb']
 collection = db['pooclection']
 
