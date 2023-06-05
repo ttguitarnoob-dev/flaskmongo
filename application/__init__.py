@@ -1,13 +1,17 @@
-from flask import Flask
-from flask_pymongo import PyMongo
+from flask import Flask, request
+# from mongoengine import Document, StringField, IntField
+from pymongo import MongoClient
 
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "cb8c0481ed58bc152b47ff1c0ce5594d9c754472"
-app.config["MONGO_URI"] = "mongodb+srv://tthompson:Bungfodder123@cluster0.hxddmni.mongodb.net/?retryWrites=true&w=majority"
 
-#setup mongodb
-mongodb_client = PyMongo(app)
-db = mongodb_client.db
+#mongodb connection
+client = MongoClient('mongodb://10.24.24.164:27017')
+db = client['poodb']
+collection = db['pooclection']
+
+
+
+
 
 from application import routes

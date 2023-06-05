@@ -1,5 +1,14 @@
-from application import app 
+from application import app, collection
+from flask import request
 
-@app.route("/")
+@app.route("/", methods = ["GET"])
 def index():
-    return "Hello from index route"
+    data = collection.find()
+    return data
+
+@app.route("/add", methods = ['POST'])
+def add():
+    name = request.form.get('name')
+    age = request.form.get('age')
+    data = {'name': name, 'age': age}
+    collection.insert_one(data)
