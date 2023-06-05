@@ -12,3 +12,4 @@ def add():
     age = request.form.get('age')
     data = {'name': name, 'age': age}
     collection.insert_one(data)
+    return collection.find()
